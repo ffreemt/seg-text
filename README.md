@@ -3,7 +3,15 @@
 
 Segment multilingual text to sentences
 
-## Prerequisite for Windows without a C compiler
+## Prerequisite
+
+### For Linux and friends
+Install `libicu`, for example for Ubuntu:
+```bash
+apt install libicu-dev
+```
+
+### For Windows without a C compiler
 
 `seg-text` depends on `polyglot` which in turn depengs on `pyicu`, `pycld2` and `Morfessor`. For windows without a C compiler (such as visiaul C or mingw C), these cannot be installed via pip directly.
 
