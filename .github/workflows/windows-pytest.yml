@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.8, 3.9]
+        python-version: [3.8]
         poetry-version: [1.1.2]
         os: [windows-latest]
     runs-on: ${{ matrix.os }}
@@ -23,7 +23,8 @@ jobs:
       - name: Install packages
         run: |
           # sudo apt-get install libicu-dev pkg-config
-          pip install whl\pycld2-0.41-cp38-cp38-win_amd64.whl whl\PyICU-2.8-cp38-cp38-win_amd64.whl
+          pip install whl\PyICU-2.8-cp38-cp38-win_amd64.whl
+          pip install whl\pycld2-0.41-cp38-cp38-win_amd64.whl
           poetry install  # --no-dev
           # poetry add pyicu pycld2
       - name: Run flake8
