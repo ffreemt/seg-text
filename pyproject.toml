@@ -17,6 +17,10 @@ tqdm = "^4.62.3"
 sentence-splitter = "^1.4"
 polyglot = "^16.7.4"
 numpy = "^1.22.2"
+pyicu = "2.8"
+Morfessor = "2.0.6"
+pycld2 = "0.41"
+
 
 [tool.poe.executor]
 type = "poetry"
