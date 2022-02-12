@@ -1,0 +1,27 @@
+{
+    "name": "seg_text",
+    "version": "0.1.0",
+    "description": "description",
+    "main": "index.js",
+    "repository": "git@github.com:ffreemt/seg-text.git",
+    "author": "ffreemt",
+    "license": "MIT",
+    "dependencies": {
+        "npm-run-all": "^4.1.5"
+    },
+    "scripts": {
+        "start": "pyright && pytest && yarn style",
+        "test": "nodemon -w tests -w seg_text -x pytest tests",
+        "pyright": "nodemon -w seg_text -w .venv -e .py -x pyright seg_text tests",
+        "pytest": "nodemon -w tests -w seg_text -e .py -x pytest tests seg_text",
+        "style": "nodemon -w seg_text -w tests -x \"black tests seg_text && python -m flake8\"",
+        "docstyle": "nodemon -w seg_text -w tests -x pydocstyle --convention=google tests seg_text",
+        "pylint": "nodemon -w seg_text -e .py -x pylint seg_text",
+        "test:seg_text": "nodemon -w tests -e .py -x pytest -k seg_text tests",
+        "publish": "poetry build && poetry publish",
+        "black": "black tests seg_text",
+        "flake8": "flake8 tests seg_text",
+        "pep257": "pep257 tests seg_text",
+        "final": "run-s pep257 black flake8 pytest"
+    }
+}
