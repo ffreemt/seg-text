@@ -20,10 +20,6 @@ jobs:
       - uses: abatilo/actions-poetry@v2.0.0
         with:
           poetry-version: ${{ matrix.poetry-version }}
-      - name: install libicu in ubuntu
-        - if: matrix.os == 'ubuntu-18.04'
-          run: |
-            sudo apt-get install libicu-dev pkg-config
       - name: Install packages
         run: |
           # sudo apt-get install libicu-dev pkg-config
