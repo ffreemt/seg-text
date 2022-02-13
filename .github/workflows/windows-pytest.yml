@@ -21,7 +21,6 @@ jobs:
         with:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Install packages
-        shell: cmd
         run: |
           chcp 65001
           # pip config set global.disable-pip-version-check true
