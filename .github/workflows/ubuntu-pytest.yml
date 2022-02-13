@@ -24,6 +24,7 @@ jobs:
         run: |
           # sudo apt-get install libicu-dev pkg-config
           poetry install  # --no-dev
+          pip config set global.disable-pip-version-check true
           pip install pyicu==2.8 pycld2
       - name: Run flake8
         run: |
