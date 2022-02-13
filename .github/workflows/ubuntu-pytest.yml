@@ -22,9 +22,9 @@ jobs:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Install packages
         run: |
-          # sudo apt-get install libicu-dev pkg-config
+          sudo apt-get install libicu-dev pkg-config
           poetry install  # --no-dev
-          # poetry add pyicu pycld2
+          poetry add pyicu pycld2
       - name: Run flake8
         run: |
           poetry run flake8 --exit-zero
