@@ -23,13 +23,13 @@ jobs:
       - name: Install packages
         run: |
           shell: cmd
+          chcp 65001
           # pip config set global.disable-pip-version-check true
           # sudo apt-get install libicu-dev pkg-config
           poetry install  # --no-dev
           poetry run pip install whl\PyICU-2.8-cp38-cp38-win_amd64.whl
           poetry run pip install whl\pycld2-0.41-cp38-cp38-win_amd64.whl
-          chcp 65001
-          poetry add polyglot
+          # poetry run pip polyglot
           # pip install pyicu==2.8 pycld2
       - name: Run flake8
         run: |
