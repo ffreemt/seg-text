@@ -15,9 +15,9 @@ icecream = "^2.1.1"
 install = "^1.3.5"
 tqdm = "^4.62.3"
 sentence-splitter = "^1.4"
-polyglot = "^16.7.4"
 numpy = "^1.22.2"
 Morfessor = "2.0.6"
+polyglot = {git = "https://github.com/aboSamoor/polyglot", rev = "master"}
 
 
 [tool.poe.executor]
