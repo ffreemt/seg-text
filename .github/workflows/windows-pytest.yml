@@ -23,10 +23,10 @@ jobs:
       - name: Install packages
         run: |
           # sudo apt-get install libicu-dev pkg-config
+          poetry install  # --no-dev
           pip install whl\PyICU-2.8-cp38-cp38-win_amd64.whl
           pip install whl\pycld2-0.41-cp38-cp38-win_amd64.whl
-          poetry install  # --no-dev
-          # poetry add pyicu pycld2
+          # pip install pyicu==2.8 pycld2
       - name: Run flake8
         run: |
           poetry run flake8 --exit-zero
