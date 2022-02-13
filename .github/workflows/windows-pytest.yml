@@ -21,8 +21,8 @@ jobs:
         with:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Install packages
+        shell: cmd
         run: |
-          shell: cmd
           chcp 65001
           # pip config set global.disable-pip-version-check true
           # sudo apt-get install libicu-dev pkg-config
