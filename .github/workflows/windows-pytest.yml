@@ -22,14 +22,12 @@ jobs:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Install packages
         run: |
-          # chcp 65001
           # pip config set global.disable-pip-version-check true
           # sudo apt-get install libicu-dev pkg-config
           poetry install  # --no-dev
           poetry run pip install whl\PyICU-2.8.1-cp38-cp38-win_amd64.whl
           poetry run pip install whl\pycld2-0.41-cp38-cp38-win_amd64.whl
           poetry add git+https://github.com/aboSamoor/polyglot@master
-          # pip install pyicu==2.8 pycld2
       - name: Run flake8
         run: |
           poetry run flake8 --exit-zero

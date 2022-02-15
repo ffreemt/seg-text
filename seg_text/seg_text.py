@@ -4,20 +4,19 @@ Use sentence_splitter if supported,
 else use polyglot.text.Text
 
 !apt install libicu-dev
-!install pyicu pycld2 Morfessor
+!install pyicu pycld2
 !pip install polyglot sentence_splitter
 """
 # pylint: disable=
 
+import re
 from typing import List, Optional, Union
 
-import re
-from tqdm.auto import tqdm
+from logzero import logger
 from polyglot.detect.base import logger as polyglot_logger
 from polyglot.text import Detector, Text
 from sentence_splitter import split_text_into_sentences
-
-from logzero import logger
+from tqdm.auto import tqdm
 
 # turn of polyglot.text.Detector warning
 polyglot_logger.setLevel("ERROR")
@@ -28,15 +27,15 @@ polyglot_logger.setLevel("ERROR")
 LANG_S = ["ca", "cs", "da", "nl", "en", "fi", "fr", "de",
           "el", "hu", "is", "it", "lv", "lt", "no", "pl",
           "pt", "ro", "ru", "sk", "sl", "es", "sv", "tr"]
+# fmt: on
 
 
 def _seg_text(
-        text: str,
-        lang: Optional[str] = None,
-        # qmode: bool = False,
-        maxlines: int = 1000
+    text: str,
+    lang: Optional[str] = None,
+    # qmode: bool = False,
+    maxlines: int = 1000,
 ) -> List[str]:
-    # fmt: on
     """Split text to sentences.
 
     Use sentence_splitter if supported,
@@ -55,10 +54,7 @@ def _seg_text(
             lang = Detector(text).language.code
         except Exception as exc:
             logger.info("text[:30]: %s", text[:30])
-            logger.warning(
-                "polyglot.text.Detector exc: %s, setting to 'en'",
-                exc
-            )
+            logger.warning("polyglot.text.Detector exc: %s, setting to 'en'", exc)
             lang = "en"
 
     # if not qmode and lang in LANG_S:
