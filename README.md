@@ -3,23 +3,16 @@
 
 Segment multilingual text to sentences
 
-## Install `seg-text`
-
-```shell
-pip install git+https://github.com/ffreemt/seg-text
-# or poetry add git+https://github.com/ffreemt/seg-text
-```
-
-### Post-install polyglot
+### Pre-install libicu and PyICU/pycld2
 
 #### For Linux and friends
 Install `libicu`, for example for Ubuntu:
 ```bash
 apt install libicu-dev
-poetry add polyglot
+# poetry add polyglot
 ```
 
-### For Windows
+#### For Windows
 
 `seg-text` depends on `polyglot` which in turn depengs on `pyicu` and `pycld2`. `pyicu` and `pycld2` are difficult if not impossible to install in Windows using pip or poetry.
 
@@ -28,12 +21,15 @@ However, readily available `whl` packages can be downloaded from [https://www.lf
 pip install PyICU-2.8.1-cp38-cp38-win_amd64.whl pycld2-0.41-cp38-cp38-win_amd64.whl
 ```
 
-After that, install `polyglot`
-```
-poetry add git+https://github.com/aboSamoor/polyglot@master
-```
-
 Refer to `windows-pytest.yml` and `ubuntu-pytest.yml` in `.github/workflows` for more details.
+
+## Install `seg-text`
+
+```shell
+pip install seg-text
+# or pip install git+https://github.com/ffreemt/seg-text
+# or poetry add git+https://github.com/ffreemt/seg-text
+```
 
 ## Use `seg-text`
 ```python

@@ -8,9 +8,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.8]
+        python-version: [3.8, 3.9]
         poetry-version: [1.1.2]
-        os: [windows-latest]
+        os: [ubuntu-18.04]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -23,11 +23,9 @@ jobs:
       - name: Install packages
         run: |
           # pip config set global.disable-pip-version-check true
-          # sudo apt-get install libicu-dev pkg-config
-          poetry run pip install whl\PyICU-2.8.1-cp38-cp38-win_amd64.whl
-          poetry run pip install whl\pycld2-0.41-cp38-cp38-win_amd64.whl
-          # poetry add git+https://github.com/aboSamoor/polyglot@master
+          sudo apt-get install libicu-dev pkg-config
           poetry install  # --no-dev
+          poetry add pyicu==2.8 pycld2 polyglot
       - name: Run flake8
         run: |
           poetry run flake8 --exit-zero
