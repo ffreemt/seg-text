@@ -9,12 +9,12 @@ Segment multilingual text to sentences
 Install `libicu`, for example for Ubuntu:
 ```bash
 apt install libicu-dev
-poetry add pyicu==2.8 pycld2 polyglot
+poetry add pyicu==2.8 pycld2
 ```
 
 #### For Windows
 
-`seg-text` depends on `polyglot` which in turn depengs on `pyicu` and `pycld2`. `pyicu` and `pycld2` are difficult if not impossible to install in Windows using pip or poetry.
+`seg-text` depends on `polyglot` which in turn depends on `pyicu` and `pycld2`. `pyicu` and `pycld2` are difficult if not impossible to install in Windows using pip or poetry.
 
 However, readily available `whl` packages can be downloaded from [https://www.lfd.uci.edu/~gohlke/pythonlibs/](https://www.lfd.uci.edu/~gohlke/pythonlibs/) and installed  (for example for python 3.8 amd64) as follows
 ```bash
@@ -42,6 +42,9 @@ prin(seg_text(" text 1\n test 2. Test 3"))
 text = """ “元宇宙”，英文為“Metaverse”。該詞出自1992年；的科幻小說《雪崩》。 """
 print(seg_text(text))
 # ["“元宇宙”，英文為“Metaverse”。", "該詞出自1992年；的科幻小說《雪崩》。"]
+
+# [;:] is a regex expression meaning either ; or :
+# if you use ;: (without []), it would mean ;: together as a whole
 
 print(seg_text(text, extra="[;:]"))
 # ["“元宇宙”，英文為“Metaverse”。", "該詞出自1992年；", "的科幻小說《雪崩》。"]
