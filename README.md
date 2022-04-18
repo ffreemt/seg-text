@@ -8,8 +8,8 @@ Segment multilingual text to sentences
 #### For Linux and friends
 Install `libicu`, for example for Ubuntu:
 ```bash
-apt install libicu-dev
-poetry add pyicu==2.8 pycld2
+apt install libicu-dev pkg-config
+poetry add pyicu==2.8 pycld2 polyglot
 ```
 
 #### For Windows
