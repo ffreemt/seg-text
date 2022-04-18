@@ -29,6 +29,7 @@ jobs:
           poetry run pip install git+https://github.com/aboSamoor/polyglot@master
           pip install polyglot
           poetry install  # --no-dev
+          poetry add git+https://github.com/aboSamoor/polyglot@master
       - name: Run flake8
         run: |
           poetry run flake8 --exit-zero
