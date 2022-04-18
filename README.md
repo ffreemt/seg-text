@@ -19,7 +19,7 @@ poetry add pyicu==2.8 pycld2
 However, readily available `whl` packages can be downloaded from [https://www.lfd.uci.edu/~gohlke/pythonlibs/](https://www.lfd.uci.edu/~gohlke/pythonlibs/) and installed  (for example for python 3.8 amd64) as follows
 ```bash
 pip install PyICU-2.8.1-cp38-cp38-win_amd64.whl pycld2-0.41-cp38-cp38-win_amd64.whl
-poetry add git+https://github.com/aboSamoor/polyglot@master
+pip install git+https://github.com/aboSamoor/polyglot@master
 ```
 
 Refer to `windows-pytest.yml` and `ubuntu-pytest.yml` in `.github/workflows` for more details.
