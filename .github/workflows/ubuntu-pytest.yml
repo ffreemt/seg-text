@@ -24,7 +24,7 @@ jobs:
         run: |
           # pip config set global.disable-pip-version-check true
           sudo apt-get install libicu-dev pkg-config
-          poetry add pyicu==2.8 pycld2  # polyglot
+          poetry add pyicu==2.8 pycld2 polyglot
           poetry install  # --no-dev
       - name: Run flake8
         run: |
