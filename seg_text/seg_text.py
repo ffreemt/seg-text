@@ -6,21 +6,32 @@ else use polyglot.text.Text
 !apt install libicu-dev
 !install pyicu pycld2
 !pip install polyglot sentence_splitter
+
+Use vtext and fastlid to rid of polyglot?
+
+from vtext.tokenize_sentence import UnicodeSentenceTokenizer, PunctuationTokenizer
+tok = UnicodeSentenceTokenizer()
+seg = tok.tokenize(''' Text ''') for langs not in LANG_S
+
 """
-# pylint: disable=
+# pylint: disable=invalid-name
 
 import re
 from typing import List, Optional, Union
 
 from logzero import logger
-from polyglot.detect.base import logger as polyglot_logger
-from polyglot.text import Detector, Text
+# from polyglot.detect.base import logger as polyglot_logger
+# from polyglot.text import Detector, Text
 from sentence_splitter import split_text_into_sentences
 from tqdm.auto import tqdm
 
-# turn of polyglot.text.Detector warning
-polyglot_logger.setLevel("ERROR")
+from fastlid import fastlid
+from vtext.tokenize_sentence import UnicodeSentenceTokenizer
 
+tok = UnicodeSentenceTokenizer()
+
+# turn of polyglot.text.Detector warning
+# polyglot_logger.setLevel("ERROR")
 
 # fmt: off
 # use sentence_splitter if supported
@@ -35,8 +46,11 @@ def _seg_text(
     lang: Optional[str] = None,
     # qmode: bool = False,
     maxlines: int = 1000,
+    flag: bool = True,
 ) -> List[str]:
     """Split text to sentences.
+
+    switched to vtext, but keep the code for polyglot
 
     Use sentence_splitter if supported,
     else use polyglot.text.Text.sentences
@@ -51,7 +65,14 @@ def _seg_text(
     """
     if lang is None:
         try:
-            lang = Detector(text).language.code
+            if flag:
+                try:
+                    lang, _ = fastlid(text)
+                except Exception as exc:
+                    logger.warning(" fastlid: %s, setting lang='en'", exc)
+                    lang = "en"
+            else:
+                lang = Detector(text).language.code
         except Exception as exc:
             logger.info("text[:30]: %s", text[:30])
             logger.warning("polyglot.text.Detector exc: %s, setting to 'en'", exc)
@@ -77,6 +98,14 @@ def _seg_text(
     # empty "" text or blank to avoid Exception
     if not text.strip():
         return []
+
+    if flag:
+        try:
+            _ = tok.tokenize(text)
+        except Exception:
+            logger.exception("vtext.UnicodeSentenceTokenizer")
+            raise
+        return [elm.strip() for elm in _ if elm.strip()]
 
     return [elm.string for elm in Text(text, lang).sentences]
 
@@ -112,6 +141,7 @@ def seg_text(
             elm,
             lang=lang,
             maxlines=maxlines,
+            # flag=False,
         ))
 
     return res
