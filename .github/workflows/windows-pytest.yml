@@ -22,10 +22,8 @@ jobs:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Install packages
         run: |
-          # pip config set global.disable-pip-version-check true
-          # sudo apt-get install libicu-dev pkg-config
-          poetry run pip install whl\PyICU-2.8.1-cp38-cp38-win_amd64.whl
-          poetry run pip install whl\pycld2-0.41-cp38-cp38-win_amd64.whl
+          # poetry run pip install whl\PyICU-2.8.1-cp38-cp38-win_amd64.whl
+          # poetry run pip install whl\pycld2-0.41-cp38-cp38-win_amd64.whl
           # poetry run pip install git+https://github.com/aboSamoor/polyglot@master
           poetry install  # --no-dev
       - name: Run flake8
