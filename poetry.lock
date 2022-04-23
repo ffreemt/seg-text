@@ -255,6 +255,29 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "scipy"
+version = "1.6.1"
+description = "SciPy: Scientific Library for Python"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+numpy = ">=1.16.5"
+
+[[package]]
+name = "semantic-version"
+version = "2.9.0"
+description = "A library implementing the 'SemVer' scheme."
+category = "main"
+optional = false
+python-versions = ">=2.7"
+
+[package.extras]
+dev = ["Django (>=1.11)", "nose2", "tox", "check-manifest", "coverage", "flake8", "wheel", "zest.releaser", "readme-renderer (<25.0)", "colorama (<=0.4.1)"]
+doc = ["sphinx", "sphinx-rtd-theme"]
+
+[[package]]
 name = "sentence-splitter"
 version = "1.4"
 description = "Text to sentence splitter using heuristic algorithm by Philipp Koehn and Josh Schroeder"
@@ -264,6 +287,18 @@ python-versions = ">=3.5"
 
 [package.dependencies]
 regex = ">=2017.12.12"
+
+[[package]]
+name = "setuptools-rust"
+version = "1.2.0"
+description = "Setuptools Rust extension plugin"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+semantic-version = ">=2.8.2,<3"
+typing-extensions = ">=3.7.4.3"
 
 [[package]]
 name = "six"
@@ -298,6 +333,27 @@ notebook = ["ipywidgets (>=6)"]
 telegram = ["requests"]
 
 [[package]]
+name = "typing-extensions"
+version = "4.2.0"
+description = "Backported and Experimental Type Hints for Python 3.7+"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "vtext"
+version = "0.2.0"
+description = "Natural Language Processing in Rust with Python bidings"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+numpy = ">=1.15.0"
+scipy = ">=1.1.0"
+setuptools-rust = ">=0.10.2"
+
+[[package]]
 name = "wcwidth"
 version = "0.2.5"
 description = "Measures the displayed width of unicode strings in a terminal"
@@ -308,7 +364,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<4.0"
-content-hash = "301f6b579439c6768985c090df81c1f063c376b48eaa0659db3aaf02f373fa24"
+content-hash = "2e10d3b5106a9febf789899ffc3782fc05c93aaff99ee8dcf79f15584fd286b5"
 
 [metadata.files]
 asttokens = [
@@ -500,9 +556,38 @@ regex = [
     {file = "regex-2022.1.18-cp39-cp39-win_amd64.whl", hash = "sha256:ebaeb93f90c0903233b11ce913a7cb8f6ee069158406e056f884854c737d2442"},
     {file = "regex-2022.1.18.tar.gz", hash = "sha256:97f32dc03a8054a4c4a5ab5d761ed4861e828b2c200febd4e46857069a483916"},
 ]
+scipy = [
+    {file = "scipy-1.6.1-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:a15a1f3fc0abff33e792d6049161b7795909b40b97c6cc2934ed54384017ab76"},
+    {file = "scipy-1.6.1-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:e79570979ccdc3d165456dd62041d9556fb9733b86b4b6d818af7a0afc15f092"},
+    {file = "scipy-1.6.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:a423533c55fec61456dedee7b6ee7dce0bb6bfa395424ea374d25afa262be261"},
+    {file = "scipy-1.6.1-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:33d6b7df40d197bdd3049d64e8e680227151673465e5d85723b3b8f6b15a6ced"},
+    {file = "scipy-1.6.1-cp37-cp37m-win32.whl", hash = "sha256:6725e3fbb47da428794f243864f2297462e9ee448297c93ed1dcbc44335feb78"},
+    {file = "scipy-1.6.1-cp37-cp37m-win_amd64.whl", hash = "sha256:5fa9c6530b1661f1370bcd332a1e62ca7881785cc0f80c0d559b636567fab63c"},
+    {file = "scipy-1.6.1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:bd50daf727f7c195e26f27467c85ce653d41df4358a25b32434a50d8870fc519"},
+    {file = "scipy-1.6.1-cp38-cp38-manylinux1_i686.whl", hash = "sha256:f46dd15335e8a320b0fb4685f58b7471702234cba8bb3442b69a3e1dc329c345"},
+    {file = "scipy-1.6.1-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:0e5b0ccf63155d90da576edd2768b66fb276446c371b73841e3503be1d63fb5d"},
+    {file = "scipy-1.6.1-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:2481efbb3740977e3c831edfd0bd9867be26387cacf24eb5e366a6a374d3d00d"},
+    {file = "scipy-1.6.1-cp38-cp38-win32.whl", hash = "sha256:68cb4c424112cd4be886b4d979c5497fba190714085f46b8ae67a5e4416c32b4"},
+    {file = "scipy-1.6.1-cp38-cp38-win_amd64.whl", hash = "sha256:5f331eeed0297232d2e6eea51b54e8278ed8bb10b099f69c44e2558c090d06bf"},
+    {file = "scipy-1.6.1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:0c8a51d33556bf70367452d4d601d1742c0e806cd0194785914daf19775f0e67"},
+    {file = "scipy-1.6.1-cp39-cp39-manylinux1_i686.whl", hash = "sha256:83bf7c16245c15bc58ee76c5418e46ea1811edcc2e2b03041b804e46084ab627"},
+    {file = "scipy-1.6.1-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:794e768cc5f779736593046c9714e0f3a5940bc6dcc1dba885ad64cbfb28e9f0"},
+    {file = "scipy-1.6.1-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:5da5471aed911fe7e52b86bf9ea32fb55ae93e2f0fac66c32e58897cfb02fa07"},
+    {file = "scipy-1.6.1-cp39-cp39-win32.whl", hash = "sha256:8e403a337749ed40af60e537cc4d4c03febddcc56cd26e774c9b1b600a70d3e4"},
+    {file = "scipy-1.6.1-cp39-cp39-win_amd64.whl", hash = "sha256:a5193a098ae9f29af283dcf0041f762601faf2e595c0db1da929875b7570353f"},
+    {file = "scipy-1.6.1.tar.gz", hash = "sha256:c4fceb864890b6168e79b0e714c585dbe2fd4222768ee90bc1aa0f8218691b11"},
+]
+semantic-version = [
+    {file = "semantic_version-2.9.0-py2.py3-none-any.whl", hash = "sha256:db2504ab37902dd2c9876ece53567aa43a5b2a417fbe188097b2048fff46da3d"},
+    {file = "semantic_version-2.9.0.tar.gz", hash = "sha256:abf54873553e5e07a6fd4d5f653b781f5ae41297a493666b59dcf214006a12b2"},
+]
 sentence-splitter = [
     {file = "sentence_splitter-1.4-py2.py3-none-any.whl", hash = "sha256:5645a3ad9c348e4287f4bc73bd573d92dccd4139042fddd51fff0591f1376763"},
     {file = "sentence_splitter-1.4.tar.gz", hash = "sha256:3d1d773d07cc733ca2955aa87d0fa1c0a7274c6bdeec1daac5c5e92efb512f63"},
+]
+setuptools-rust = [
+    {file = "setuptools-rust-1.2.0.tar.gz", hash = "sha256:0a4ada479e8c7e3d8bd7cb56e1a29acc2b2bb98c2325051b0cdcb57d7f056de8"},
+    {file = "setuptools_rust-1.2.0-py3-none-any.whl", hash = "sha256:decc6bdf4aef0ff3c323ba85e2fcabed8c77044443cd239ea01b67ca9b1d777e"},
 ]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
@@ -515,6 +600,22 @@ tomlkit = [
 tqdm = [
     {file = "tqdm-4.62.3-py2.py3-none-any.whl", hash = "sha256:8dd278a422499cd6b727e6ae4061c40b48fce8b76d1ccbf5d34fca9b7f925b0c"},
     {file = "tqdm-4.62.3.tar.gz", hash = "sha256:d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"},
+]
+typing-extensions = [
+    {file = "typing_extensions-4.2.0-py3-none-any.whl", hash = "sha256:6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708"},
+    {file = "typing_extensions-4.2.0.tar.gz", hash = "sha256:f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"},
+]
+vtext = [
+    {file = "vtext-0.2.0-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:1791aad4a999525a7c19ae25ffdeb491839e81e958995567151a3bf8012c32ff"},
+    {file = "vtext-0.2.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:7ddde99b3153f7bf439b06f69f221c59945b1ce103368ce3a4957e7112ab904b"},
+    {file = "vtext-0.2.0-cp36-cp36m-win_amd64.whl", hash = "sha256:c54d2b4496afa0d8687345b2b89bed7e9aa03b223f0dc58ac923348d0f879a2c"},
+    {file = "vtext-0.2.0-cp37-cp37m-macosx_10_14_x86_64.whl", hash = "sha256:397823cda22d04de43312e27cbe74be4318c20ec2ef38df9c66493580be06ec8"},
+    {file = "vtext-0.2.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:be3d75845af06d92af9fb65dde8c37ea890f8ed00bb236884fe3b8e2c4b08e32"},
+    {file = "vtext-0.2.0-cp37-cp37m-win_amd64.whl", hash = "sha256:1fa5b18b31637ce012fdfddb1c6a207989320bcf246d5f131695c9fc92b2a32c"},
+    {file = "vtext-0.2.0-cp38-cp38-macosx_10_14_x86_64.whl", hash = "sha256:c7a7826a44b81e9d1779bc800a5ee133647c7943c52b434ae8415df18933f77f"},
+    {file = "vtext-0.2.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:eb37f4b72cf754ff20323f11519da9d3864c7f0a428be847da2ed55a3665cc44"},
+    {file = "vtext-0.2.0-cp38-cp38-win_amd64.whl", hash = "sha256:02c1dbefd2b6fd3522a96a9bd8f8e85ae4722ee088e2d952bbec830b0e88727c"},
+    {file = "vtext-0.2.0.tar.gz", hash = "sha256:0ce1b0bb7e1cc0adcf5c8064757adaa6ea7bf52e366a3d30d2eac0588145f0e6"},
 ]
 wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
