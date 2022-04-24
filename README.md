@@ -1,28 +1,18 @@
 # seg-text
-[![pytest](https://github.com/ffreemt/seg-text/actions/workflows/ubuntu-pytest.yml/badge.svg)](https://github.com/ffreemt/seg-text/actions)[![python](https://img.shields.io/static/v1?label=python+&message=3.8%2B&color=blue)](https://www.python.org/downloads/)[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![PyPI version](https://badge.fury.io/py/seg_text.svg)](https://badge.fury.io/py/seg_text)
+[![pytest](https://github.com/ffreemt/seg-text/actions/workflows/ubuntu-pytest.yml/badge.svg)](https://github.com/ffreemt/seg-text/actions)[![python](https://img.shields.io/static/v1?label=python+&message=3.8&color=blue)](https://www.python.org/downloads/)[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![PyPI version](https://badge.fury.io/py/seg_text.svg)](https://badge.fury.io/py/seg_text)
 
 Segment multilingual text to sentences
 
-### Pre-install PyICU/pycld2/polyglot
+Currently for Python 3.8 only because of the package `vtext` used.
 
-#### For Linux and friends
-Install `libicu`, for example for Ubuntu:
+### Pre-install fastetext for Windows
+
+`seg-text` depends on `fastlid` which in turn depends on `fasttext`. Installing fasttext requires a C++ compiler.
+
+For Windows without a C++ compiler, readily available `whl` packages can be downloaded from [https://www.lfd.uci.edu/~gohlke/pythonlibs/](https://www.lfd.uci.edu/~gohlke/pythonlibs/) and installed  (for example for python 3.8 amd64) as follows
 ```bash
-apt install libicu-dev pkg-config
-poetry add pyicu==2.8 pycld2 polyglot
+pip install fasttext-0.9.2-cp38-cp38-win_amd64.whl
 ```
-
-#### For Windows
-
-`seg-text` depends on `polyglot` which in turn depends on `pyicu` and `pycld2`. `pyicu` and `pycld2` are difficult if not impossible to install in Windows using pip or poetry.
-
-However, readily available `whl` packages can be downloaded from [https://www.lfd.uci.edu/~gohlke/pythonlibs/](https://www.lfd.uci.edu/~gohlke/pythonlibs/) and installed  (for example for python 3.8 amd64) as follows
-```bash
-pip install PyICU-2.8.1-cp38-cp38-win_amd64.whl pycld2-0.41-cp38-cp38-win_amd64.whl
-pip install git+https://github.com/aboSamoor/polyglot@master
-```
-
-Refer to `windows-pytest.yml` and `ubuntu-pytest.yml` in `.github/workflows` for more details.
 
 ## Install `seg-text`
 
