@@ -5,7 +5,7 @@ Segment multilingual text to sentences
 
 Currently for Python 3.8 only because of the package `vtext` used.
 
-### Pre-install fastetext for Windows
+### Pre-install fastetext whl for Windows
 
 `seg-text` depends on `fastlid` which in turn depends on `fasttext`. Installing fasttext requires a C++ compiler.
 
