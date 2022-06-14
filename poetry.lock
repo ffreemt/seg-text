@@ -399,8 +399,8 @@ python-versions = "*"
 
 [metadata]
 lock-version = "1.1"
-python-versions = ">=3.8,<4.0"
-content-hash = "790d7be8be9028b7fc02afe2b1d874bee47d09f10ef39bcaa45033a142e6b304"
+python-versions = "^3.8"
+content-hash = "da3a2c48532ac291630bd1c4dc778312d0acea1fb8a19a7788acfbe6ecb79173"
 
 [metadata.files]
 asttokens = [
