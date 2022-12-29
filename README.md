@@ -3,7 +3,7 @@
 
 Segment multilingual text to sentences
 
-Currently for Python 3.8 only because of the package `vtext` used.
+Currently for Python 3.6-3.8 only because of the package `vtext` used.
 
 ### Pre-install fastetext whl for Windows
 
@@ -12,6 +12,10 @@ Currently for Python 3.8 only because of the package `vtext` used.
 For Windows without a C++ compiler, readily available `whl` packages can be downloaded from [https://www.lfd.uci.edu/~gohlke/pythonlibs/](https://www.lfd.uci.edu/~gohlke/pythonlibs/) and installed  (for example for python 3.8 amd64) as follows
 ```bash
 pip install fasttext-0.9.2-cp38-cp38-win_amd64.whl
+```
+or
+```
+pip install https://github.com/ffreemt/ezbee/raw/main/data/artifects/fasttext-0.9.2-cp38-cp38-win_amd64.whl
 ```
 
 ## Install `seg-text`
